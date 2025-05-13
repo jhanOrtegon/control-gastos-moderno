@@ -1,19 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
   images: {
-    domains: ["lh3.googleusercontent.com", "vercel.com"],
-  },
-  async redirects() {
-    return [
+    remotePatterns: [
       {
-        source: "/github",
-        destination: "https://github.com/steven-tey/precedent",
-        permanent: false,
+        protocol: 'https',
+        hostname: 'utfs.io',
+        port: ''
       },
-    ];
+      {
+        protocol: 'https',
+        hostname: 'api.slingacademy.com',
+        port: ''
+      }
+    ]
   },
+  transpilePackages: ['geist']
 };
 
 module.exports = nextConfig;

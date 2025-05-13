@@ -1,95 +1,109 @@
-<a href="https://precedent.dev">
-  <img alt="Precedent – Building blocks for your Next project" src="https://precedent.dev/opengraph-image" />
-  <h1 align="center">Precedent</h1>
-</a>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/9113740/201498864-2a900c64-d88f-4ed4-b5cf-770bcb57e1f5.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/9113740/201498152-b171abb8-9225-487a-821c-6ff49ee48579.png">
+</picture>
 
-<p align="center">
-  Building blocks for your Next project
-</p>
+<div align="center"><strong>Next.js Admin Dashboard Starter Template With Shadcn-ui</strong></div>
+<div align="center">Built with the Next.js 15 App Router</div>
+<br />
+<div align="center">
+<a href="https://dub.sh/shadcn-dashboard">View Demo</a>
+<span>
+</div>
 
-<p align="center">
-  <a href="https://twitter.com/steventey">
-    <img src="https://img.shields.io/twitter/follow/steventey?style=flat&label=steventey&logo=twitter&color=0bf&logoColor=fff" alt="Steven Tey Twitter follower count" />
-  </a>
-  <a href="https://github.com/steven-tey/precedent">
-    <img src="https://img.shields.io/github/stars/steven-tey/precedent?label=steven-tey%2Fprecedent" alt="Precedent repo star count" />
-  </a>
-</p>
+## Overview
 
-<p align="center">
-  <a href="#introduction"><strong>Introduction</strong></a> ·
-  <a href="#one-click-deploy"><strong>One-click Deploy</strong></a> ·
-  <a href="#tech-stack--features"><strong>Tech Stack + Features</strong></a> ·
-  <a href="#author"><strong>Author</strong></a>
-</p>
-<br/>
+This is a starter template using the following stack:
 
-## Introduction
+- Framework - [Next.js 15](https://nextjs.org/13)
+- Language - [TypeScript](https://www.typescriptlang.org)
+- Styling - [Tailwind CSS v4](https://tailwindcss.com)
+- Components - [Shadcn-ui](https://ui.shadcn.com)
+- Schema Validations - [Zod](https://zod.dev)
+- State Management - [Zustand](https://zustand-demo.pmnd.rs)
+- Search params state manager - [Nuqs](https://nuqs.47ng.com/)
+- Auth - [Clerk](https://go.clerk.com/ILdYhn7)
+- Tables - [Tanstack Data Tables](https://ui.shadcn.com/docs/components/data-table) • [Dice UI](https://www.diceui.com/docs/components/data-table)
+- Forms - [React Hook Form](https://ui.shadcn.com/docs/components/form)
+- Command+k interface - [kbar](https://kbar.vercel.app/)
+- Linting - [ESLint](https://eslint.org)
+- Pre-commit Hooks - [Husky](https://typicode.github.io/husky/)
+- Formatting - [Prettier](https://prettier.io)
 
-Precedent is an opinionated collection of components, hooks, and utilities for your Next.js project.
+_If you are looking for a React admin dashboard starter, here is the [repo](https://github.com/Kiranism/react-shadcn-dashboard-starter)._
 
-## One-click Deploy
+## Pages
 
-You can deploy this template to Vercel with the button below:
+| Pages                                                                                 | Specifications                                                                                                                                                                                                                                                          |
+| :------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Signup / Signin](https://next-shadcn-dashboard-starter.vercel.app/auth/sign-up)      | Authentication with **Clerk** provides secure authentication and user management with multiple sign-in options including passwordless authentication, social logins, and enterprise SSO - all designed to enhance security while delivering a seamless user experience. |
+| [Dashboard (Overview)](https://next-shadcn-dashboard-starter.vercel.app/dashboard)    | Cards with recharts graphs for analytics.Parallel routes in the overview sections with independent loading, error handling, and isolated component rendering .                                                                                                          |
+| [Product](https://next-shadcn-dashboard-starter.vercel.app/dashboard/product)         | Tanstack tables with server side searching, filter, pagination by Nuqs which is a Type-safe search params state manager in nextjs                                                                                                                                       |
+| [Product/new](https://next-shadcn-dashboard-starter.vercel.app/dashboard/product/new) | A Product Form with shadcn form (react-hook-form + zod).                                                                                                                                                                                                                |
+| [Profile](https://next-shadcn-dashboard-starter.vercel.app/dashboard/profile)         | Clerk's full-featured account management UI that allows users to manage their profile and security settings                                                                                                                                                             |
+| [Kanban Board](https://next-shadcn-dashboard-starter.vercel.app/dashboard/kanban)     | A Drag n Drop task management board with dnd-kit and zustand to persist state locally.                                                                                                                                                                                  |
+| [Not Found](https://next-shadcn-dashboard-starter.vercel.app/dashboard/notfound)      | Not Found Page Added in the root level                                                                                                                                                                                                                                  |
+| -                                                                                     | -                                                                                                                                                                                                                                                                       |
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsteven-tey%2Fprecedent&project-name=precedent&repository-name=precedent&demo-title=Precedent&demo-description=An%20opinionated%20collection%20of%20components%2C%20hooks%2C%20and%20utilities%20for%20your%20Next%20project.&demo-url=https%3A%2F%2Fprecedent.dev&demo-image=https%3A%2F%2Fprecedent.dev%2Fopengraph-image&env=NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,CLERK_SECRET_KEY&envDescription=Create%20a%20Clerk%20application%20to%20get%20these%20variables%3A&envLink=https%3A%2F%2Fdashboard.clerk.com%2Fapps%2Fnew)
+## Feature based organization
 
-You can also clone & create this repo locally with the following command:
-
-```bash
-npx create-next-app precedent --example "https://github.com/steven-tey/precedent"
+```plaintext
+src/
+├── app/ # Next.js App Router directory
+│ ├── (auth)/ # Auth route group
+│ │ ├── (signin)/
+│ ├── (dashboard)/ # Dashboard route group
+│ │ ├── layout.tsx
+│ │ ├── loading.tsx
+│ │ └── page.tsx
+│ └── api/ # API routes
+│
+├── components/ # Shared components
+│ ├── ui/ # UI components (buttons, inputs, etc.)
+│ └── layout/ # Layout components (header, sidebar, etc.)
+│
+├── features/ # Feature-based modules
+│ ├── feature/
+│ │ ├── components/ # Feature-specific components
+│ │ ├── actions/ # Server actions
+│ │ ├── schemas/ # Form validation schemas
+│ │ └── utils/ # Feature-specific utilities
+│ │
+├── lib/ # Core utilities and configurations
+│ ├── auth/ # Auth configuration
+│ ├── db/ # Database utilities
+│ └── utils/ # Shared utilities
+│
+├── hooks/ # Custom hooks
+│ └── use-debounce.ts
+│
+├── stores/ # Zustand stores
+│ └── dashboard-store.ts
+│
+└── types/ # TypeScript types
+└── index.ts
 ```
 
-Then, install the dependencies with your package manager of choice:
+## Getting Started
 
-```bash
-npm i
-yarn
-pnpm i
+> [!NOTE]  
+> We are using **Next 15** with **React 19**, follow these steps:
+
+Clone the repo:
+
+```
+git clone https://github.com/Kiranism/next-shadcn-dashboard-starter.git
 ```
 
-## Tech Stack + Features
+- `pnpm install` ( we have legacy-peer-deps=true added in the .npmrc)
+- Create a `.env.local` file by copying the example environment file:
+  `cp env.example.txt .env.local`
+- Add the required environment variables to the `.env.local` file.
+- `pnpm run dev`
 
-https://github.com/user-attachments/assets/aef3c099-e371-43bf-b426-f5ba73185a7c
+You should now be able to access the application at http://localhost:3000.
 
-### Frameworks
+> [!WARNING]
+> After cloning or forking the repository, be cautious when pulling or syncing with the latest changes, as this may result in breaking conflicts.
 
-- [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
-- [Clerk](https://go.clerk.com/precedent) - A comprehensive user management platform with beautifully designed, drop-in React components
-
-### Platforms
-
-- [Vercel](https://vercel.com/) – Easily preview & deploy changes with git
-
-### UI
-
-- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework for rapid UI development
-- [Radix](https://www.radix-ui.com/) – Primitives like modal, popover, etc. to build a stellar user experience
-- [Framer Motion](https://framer.com/motion) – Motion library for React to animate components with ease
-- [Lucide](https://lucide.dev/) – Beautifully simple, pixel-perfect icons
-- [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) – Optimize custom fonts and remove external network requests for improved performance
-- [`ImageResponse`](https://nextjs.org/docs/app/api-reference/functions/image-response) – Generate dynamic Open Graph images at the edge
-
-### Hooks and Utilities
-
-- `useIntersectionObserver` –  React hook to observe when an element enters or leaves the viewport
-- `useLocalStorage` – Persist data in the browser's local storage
-- `useScroll` – React hook to observe scroll position ([example](https://github.com/steven-tey/precedent/blob/main/components/layout/navbar.tsx#L12))
-- `nFormatter` – Format numbers with suffixes like `1.2k` or `1.2M`
-- `capitalize` – Capitalize the first letter of a string
-- `truncate` – Truncate a string to a specified length
-- [`use-debounce`](https://www.npmjs.com/package/use-debounce) – Debounce a function call / state update
-
-### Code Quality
-
-- [TypeScript](https://www.typescriptlang.org/) – Static type checker for end-to-end typesafety
-- [Prettier](https://prettier.io/) – Opinionated code formatter for consistent code style
-- [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
-
-### Miscellaneous
-
-- [Vercel Analytics](https://vercel.com/analytics) – Track unique visitors, pageviews, and more in a privacy-friendly way
-
-## Author
-
-- Steven Tey ([@steventey](https://twitter.com/steventey))
+Cheers! 🥂

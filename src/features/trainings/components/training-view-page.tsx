@@ -1,9 +1,8 @@
 import PageContainer from '@/components/layout/page-container';
 import { Heading } from '@/components/ui/heading';
-import { KanbanBoard } from './kanban-board';
-import NewTaskDialog from './new-task-dialog';
+import NewTrainingDialog from './new-training-dialog';
 
-export default function KanbanViewPage() {
+export default function TrainingViewPage() {
   return (
     <PageContainer>
       <div className='space-y-4'>
@@ -12,9 +11,8 @@ export default function KanbanViewPage() {
             title={`Capacitaciones`}
             description='Creación de formularios de capacitaciones'
           />
-          <NewTaskDialog />
+          <NewTrainingDialog />
         </div>
-        {/* <KanbanBoard /> */}
       </div>
     </PageContainer>
   );

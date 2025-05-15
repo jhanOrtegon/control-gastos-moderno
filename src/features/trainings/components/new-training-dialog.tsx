@@ -21,7 +21,7 @@ import { useTaskStore } from '../utils/store';
 import { CustomDatePicker } from '@/components/custom/CustomDatePicker';
 import { CustomSelect } from '@/components/custom/CustomSelect';
 import { NumericInput } from '@/components/custom/NumericInput';
-import { trainingSchema } from '@/schemas/trainingSchema';
+import { trainingSchema } from '../utils/schema';
 
 type TrainingFormValues = yup.InferType<typeof trainingSchema>;
 
